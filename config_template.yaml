@@ -1,0 +1,22 @@
+airbyte:
+  url: "https://default_airbyte_url"
+  username: "your_username"
+  password: "your_password"
+  warehouse_destinations:
+    - "Snowflake"
+    - "AnotherDestination"
+
+kafka:
+  urls:
+    - "https://default_kafka_url"
+  warehouse_mapping:
+    enabled: false  # Set to true to enable this feature
+    topic2table_map_key: "snowflake.topic2table.map"
+
+tableau:
+  site_id: "yourcompanysite"
+  server_endpoint: "https://yourcompanytableau.com"
+  token_name: "your_token_name"
+  token_value: "your_token_value"
+
+# TODO: Add custom dag_header_code for src/services/dag_generator.py

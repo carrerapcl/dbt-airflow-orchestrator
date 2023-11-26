@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.DS_Store
+
+# orchestrator things
+dbt/generated_dags/*
+*.pickle
+
+.env
+
+config.yaml
