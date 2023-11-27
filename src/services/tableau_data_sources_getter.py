@@ -1,4 +1,4 @@
-from utils import load_config, get_config_value, get_default_config_path
+from src.services.utils import load_config, get_config_value, get_default_config_path
 from tableauserverclient import Server, PersonalAccessTokenAuth
 from src.entities.tableau_table import TableauTable
 from src.gateways.tableau_cli import TableauCLI

@@ -5,6 +5,8 @@ import os
 from src.services.orchestration_config_parser import OrchestrationConfigParser
 from src.services.lineage_service import full_lineage, use_cached_lineage
 from src.services.dbt_manifest_parser import ManifestNotFoundError
+from src.services.utils import bcolors
+
 
 if __name__ == "__main__":
 
@@ -36,9 +38,12 @@ if __name__ == "__main__":
     manifest_path = args.manifest_path
 
     models_to_orchestrate = OrchestrationConfigParser().read_models(file)
-    if models_to_orchestrate is None:
-        print("No models to orchestrate (orchrestration.yaml is empty). Closing.")
+    if models_to_orchestrate is None or models_to_orchestrate == []:
+        print(f"{bcolors.WARN}No models to orchestrate (orchrestration.yaml is empty). Closing.{bcolors.ENDC}")
         exit(0)
+    else:
+        model_names = [model.name for model in models_to_orchestrate]
+        print(f"Models to orchestrate: {model_names}")
 
     if shouldUseCached:
         use_cached_lineage(models_to_orchestrate, dag_path)
@@ -46,12 +51,12 @@ if __name__ == "__main__":
 
     try:
         if manifest_path is None:
-            print("ERROR: manifest_path parameter is required if cache is not being used; pass it with -m <PATH>")
+            print(f"{bcolors.FAIL}[ERROR]:{bcolors.ENDC}: manifest_path parameter is required if cache is not being used; pass it with -m <PATH>")
             exit(1)
         full_lineage(models_to_orchestrate, manifest_path, dag_path)
     except Exception as e:
         if isinstance(e, ManifestNotFoundError):
-            print("ERROR:", e)
+            print(f"{bcolors.FAIL}[ERROR]:{bcolors.ENDC}:", e)
             exit(1)
         else:
             # if it's not an expected error, print the full strack trace

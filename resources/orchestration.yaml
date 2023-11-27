@@ -1,6 +1,6 @@
 ---
 models:
   # Example
-  # - name: table_example
-  #   schedule: 0 8 * * *
-  #   sla: 24
+  - name: saltid_accounts
+    schedule: 0 8 * * *
+    sla: 24
