@@ -1,4 +1,4 @@
-from utils import load_config, get_config_value, get_default_config_path
+from src.services.utils import load_config, get_config_value, get_default_config_path
 from requests.auth import HTTPBasicAuth
 from requests import Session
 from src.gateways.airbyte_cli import AirbyteCLI

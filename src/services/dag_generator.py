@@ -27,7 +27,7 @@ class DAGGenerator:
         full_path = dag_path + parent_node.name + self.DAG_FILE_SUFFIX
         with open(full_path, 'w') as f:
             f.write(dag_code)
-        print(f'wrote file: {full_path}')
+        print(f'Wrote file: {full_path}')
 
 
     def _get_node_task_name(self, node):

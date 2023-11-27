@@ -1,6 +1,15 @@
 import yaml
 import os
 
+class bcolors:
+    TITLE = '\033[95m'
+    OKGREEN = '\033[92m'
+    OKBLUE = '\033[94m'
+    WARN = '\033[93m'
+    FAIL = '\033[91m'
+    COMMENT = '\033[90m'
+    ENDC = '\033[0m'
+
 class ConfigError(Exception):
     """Custom exception for configuration errors."""
     pass

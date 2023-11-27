@@ -1,5 +1,4 @@
 import yaml
-import os.path
 from typing import List
 
 from src.entities.model_config import ModelConfig

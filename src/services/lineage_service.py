@@ -7,6 +7,7 @@ from src.services.dbt_manifest_parser import DBTManifestParser
 # from src.services.airbyte_connections_getter import AirbyteConnectionGetter
 from src.services.tableau_data_sources_getter import TableauDataSourcesGetter
 from src.services.dag_generator import DAGGenerator
+from src.services.utils import bcolors
 
 
 def load_dbt_objects(manifest_path: str):
@@ -171,16 +172,16 @@ def _generate_dags(graph, lineages, models, dag_path: str) -> None:
         # side effect: writes files
         dag_generator.generate_dag(graph, lineages, model.name, model.schedule, model.sla, dag_path)
 
-    print("Finished!")
+    print(f"{bcolors.OKGREEN}Finished!{bcolors.ENDC}")
 
 
 def full_lineage(models: List[ModelConfig], manifest_path: str, dag_path: str) -> None:
-    print("generating lineage from manifest")
+    print("Generating lineage from manifest...")
     graph, lineages = _build_lineage(manifest_path)
     _generate_dags(graph, lineages, models, dag_path)
 
 
 def use_cached_lineage(models: List[ModelConfig], dag_path: str) -> None:
-    print("using cached lineage")
+    print("Using cached lineage...")
     graph, lineages = load_lineage()
     _generate_dags(graph, lineages, models, dag_path)
