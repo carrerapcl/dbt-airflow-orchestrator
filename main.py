@@ -22,11 +22,10 @@ if __name__ == "__main__":
     if args.file is not None:
         file = args.file
         
-
     dag_path = './generated_dags/'
     if args.dag_path is not None:
         dag_path = args.dag_path
-        # force path to be a dir
+        # force path to be a directory
         if dag_path[-1] != '/':
             dag_path += '/'
     # Check and create the directory if it doesn't exist
@@ -38,9 +37,8 @@ if __name__ == "__main__":
 
     models_to_orchestrate = OrchestrationConfigParser().read_models(file)
     if models_to_orchestrate is None:
-        print("No models to orchestrate (orchrestration.yaml is empty). Closing")
+        print("No models to orchestrate (orchrestration.yaml is empty). Closing.")
         exit(0)
-
 
     if shouldUseCached:
         use_cached_lineage(models_to_orchestrate, dag_path)
@@ -60,4 +58,3 @@ if __name__ == "__main__":
             traceback.print_exc()
             exit(1)
     # TODO: Same exception handling pattern for orchestration file and dag generator
-

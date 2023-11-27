@@ -1,0 +1,16 @@
+# Local testing of the orchestrator
+This part of the project offers all the components required to test the orchestrator locally. It gets a local instance of Airflow running using Docker, and a sample of a dbt manifest file is also provided so some sample DAGs can be generated.
+
+NOTE: Airbyte and Kafka Connect modules are disabled in this local environment.
+
+## How to set up the docker compose setup
+This file can stand up Airflow for local development of the orchestrator script and its generated DAGs.
+
+You can get the local environment up and running using the Makefile by running the `make setup` command. What it does is:
+1. Build the dockerfile and tag it was `my-airflow:0.0.1` (this is needed in the compose as we add some plugins to the base airflow image)
+2. Run `docker-compose up` - this will bring up the entire Airflow stack
+3. Airflow should be available at `localhost:8080` with the user/password being airflow/airflow
+
+You need to install and activate Docker first.
+
+All DAGs in the `local_testing/dags` directory are loaded into Airflow. You can generate DAGs using the sample manifest file provided in the `resources` directory (follow the README instructions at the root of this repo).

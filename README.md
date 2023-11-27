@@ -13,8 +13,9 @@ It generates these DAGs and then places them in the configured output directory.
 A recommended use of this project is to run it in CICD and then output the generated DAGs to a location shared with Airflow (i.e. an S3 bucket) so that it can read the files and schedule the DAGs.
 
 ## Code structure
-`main.py` is the entry point to the project. It collects the CLI params, reads the list of DAGs to orchestrate from a file and then triggers the lineage and dag generation.
-`services/lineage_service.py` is the meat of the project. Along with the classes it depends on, it reads the DBT manifest, generates the lineage and then builds the DAGs requested in the orchestration file.
+The entry point of the project is `main.py`. It collects the CLI params, reads the list of DAGs to orchestrate from a file and then triggers the lineage and dag generation.
+
+The core of the projct is `services/lineage_service.py`. Along with the classes it depends on, it reads the dbt manifest, generates the lineage and then builds the DAGs requested in the orchestration file.
 
 The project requires the user create a `config.yaml` file at the root, following the example provided in `config_template.yaml`, and add the appropiate credentials.
 
@@ -24,7 +25,7 @@ The project requires the user create a `config.yaml` file at the root, following
 
 This assumes you're comfortable with python and are already running a virtualenv for this project.
 
-1. Install requirements `$ pip3 install -r requirements.txt`
+1. Install requirements `$ pip install -r requirements.txt`
 2. `$ python main.py -m <PATH_TO_DBT_MANIFEST_JSON> `
 
 #### Command line options
@@ -35,4 +36,4 @@ This assumes you're comfortable with python and are already running a virtualenv
 
 
 ### Testing end to end locally
-WIP
+Please refer to the README in the `local_testing` directory for instructions on how to run/test this project locally.
