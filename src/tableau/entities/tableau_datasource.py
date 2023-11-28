@@ -1,4 +1,4 @@
-from src.entities.tableau_table import TableauTable
+from src.tableau.entities.tableau_table import TableauTable
 
 
 class TableauDatasource:

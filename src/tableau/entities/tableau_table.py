@@ -1,4 +1,4 @@
-from src.entities.table import Table
+from src.core.entities.table import Table
 
 class TableauTable(Table):
     def __init__(self, database: str, schema: str, name: str, tableau_id, tableau_luid):

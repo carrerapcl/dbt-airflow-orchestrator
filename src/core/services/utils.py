@@ -17,7 +17,7 @@ class ConfigError(Exception):
 def get_default_config_path():
     """Returns the default path for the configuration file."""
     current_script_dir = os.path.dirname(os.path.realpath(__file__))
-    return os.path.join(current_script_dir, '..', '..', 'config.yaml')
+    return os.path.join(current_script_dir, '..', '..', '..', 'config.yaml')
 
 def load_config(config_path='config.yaml'):
     """Load the configuration file and return the configuration data."""

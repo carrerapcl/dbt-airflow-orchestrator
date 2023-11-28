@@ -1,7 +1,7 @@
 import yaml
 from typing import List
 
-from src.entities.model_config import ModelConfig
+from src.core.entities.model_config import ModelConfig
 
 class OrchestrationConfigParser:
     ORCHESTRATION_FILE_PATH = "resources/orchestration.yaml"

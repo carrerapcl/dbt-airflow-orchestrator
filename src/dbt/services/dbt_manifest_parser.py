@@ -1,9 +1,9 @@
 import json
 import yaml
 from typing import Dict
-from src.entities.dbt_model import DBTModel
-from src.entities.dbt_source import DBTSource
-from src.entities.dbt_test import DBTTest
+from src.dbt.entities.dbt_model import DBTModel
+from src.dbt.entities.dbt_source import DBTSource
+from src.dbt.entities.dbt_test import DBTTest
 
 # to map generic FileNotFound to a specific error
 class ManifestNotFoundError(FileNotFoundError):
@@ -18,7 +18,7 @@ class DBTManifestParser:
         except FileNotFoundError as e:
             raise ManifestNotFoundError(f"DBT manifest not found, either the path is wrong or the file has not been generated path={manifest_path}") from e
 
-    # TODO this is not actually returning tests
+    # TODO: Confirm this is actually returning tests
     def _load_manifest_models_and_tests(self, manifest: Dict) -> Dict[str, DBTModel]:
         dbt_models: dict[str, DBTModel] = {}
         for model_name, model_data in manifest["nodes"].items():

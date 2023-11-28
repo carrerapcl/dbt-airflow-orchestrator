@@ -1,8 +1,8 @@
-from src.services.utils import load_config, get_config_value, get_default_config_path
+from src.core.services.utils import load_config, get_config_value, get_default_config_path
 from tableauserverclient import Server, PersonalAccessTokenAuth
-from src.entities.tableau_table import TableauTable
-from src.gateways.tableau_cli import TableauCLI
-from src.entities.tableau_datasource import TableauDatasource
+from src.tableau.entities.tableau_table import TableauTable
+from src.tableau.gateway.tableau_cli import TableauCLI
+from src.tableau.entities.tableau_datasource import TableauDatasource
 
 class TableauDataSourcesGetter:
     def __init__(self, config_path=get_default_config_path()):
