@@ -1,10 +1,13 @@
 from src.entities.airbyte_connection import AirbyteConnection
 from src.entities.dbt_model import DBTModel
+from src.services.utils import load_config, get_config_value, get_default_config_path
 from graph import Graph
 
 # TODO: Needs work, support configs, etc
 
 class DAGGenerator:
+    def __init__(self, config_path=get_default_config_path()):
+        self.config = load_config(config_path)
 
     DAG_FILE_SUFFIX = '_dag.py'
     DAG_FOOTER = "\ntasks()\n"
@@ -135,28 +138,29 @@ class DAGGenerator:
         return code
 
     def _generate_dag_header_code(self, dag_name, schedule, tags):
+        dbt_dir = get_config_value(self.config, 'dbt', 'project_dir')
         dag_header_code = f'''import os
 from datetime import datetime
 from airflow.decorators import dag
 from airflow.utils.task_group import TaskGroup
-from plugins.dbt.operators.dbt_sla_operator import DbtRunOperator, DbtTestOperator
-from plugins.airbyte.operators.airbyte_sla_operator import AirbyteSLAOperator
-from plugins.tableau.operators.tableau_sla_operator import TableauSLAOperator
+from operators.dbt_sla_operator import DbtRunOperator, DbtTestOperator
+# from operators.airbyte_sla_operator import AirbyteSLAOperator
+# from operators.tableau_sla_operator import TableauSLAOperator
 # configs for opsgenie in case of prod failure
-from plugins.opsgenie.alert import create_opsgenie_alert
-from plugins.slack.error_notification import error_notification
+# from plugins.opsgenie.alert import create_opsgenie_alert
+# from plugins.slack.error_notification import error_notification
 
 
-if os.getenv("ENVIRONMENT") == "prd":
-    alert_notifier = create_opsgenie_alert
-else:
-    alert_notifier = error_notification
+# if os.getenv("ENVIRONMENT") == "prd":
+#     alert_notifier = create_opsgenie_alert
+# else:
+#     alert_notifier = error_notification
     
-PROJECT_DIR = "/opt/airflow/dags/saltdata_build_tool/artifacts/dbt"
+PROJECT_DIR = "{dbt_dir}"
 DBT_BIN = "/home/airflow/.local/bin/dbt"
 
 DEFAULT_DAG_ARGS = {{
-    "on_failure_callback": alert_notifier,
+    # "on_failure_callback": alert_notifier,
     "retries": 0,
     "owner": "DataAnalysts",
 }}

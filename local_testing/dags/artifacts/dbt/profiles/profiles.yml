@@ -1,0 +1,15 @@
+profile_name:
+  target: loc
+  outputs:
+    loc:
+      type: snowflake
+      threads: 1
+      account: account_id.eu-west-1
+      user: user.name@company.com
+      password: externalbrowser
+      role: USERNAME
+      database: USERNAME_DB
+      schema: MARTS
+      warehouse: DATA_ANALYSTS
+      query_tag: dbt
+      client_session_keep_alive: True
