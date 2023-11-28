@@ -3,7 +3,7 @@ from src.core.services.utils import load_config, get_config_value, get_default_c
 from src.kafkaconnect.gateways.kafka_connect_cli import KafkaConnectCLI
 from src.kafkaconnect.entities.kafkaconnect_connector import KafkaConnectConnector
 
-# TODO: solve for multiple scopes
+# TODO: Solve for multiple scopes
 class KafkaConnectConnectorsGetter:
     def __init__(self, config_path=get_default_config_path()):
         self.config = load_config(config_path)
@@ -12,7 +12,7 @@ class KafkaConnectConnectorsGetter:
         self.kafka_warehouse_enabled = get_config_value(
             self.config, 'kafka', 'warehouse_mapping', {}
         ).get('enabled', False)
-        # Get the topic-to-table mapping key, defaulting to 'snowflake.topic2table.map'
+        # Get the topic-to-table mapping key, defaulting to 'topic2table_map_key'
         self.topic2table_map_key = get_config_value(
             self.config, 'kafka', 'warehouse_mapping', {}
         ).get('topic2table_map_key')

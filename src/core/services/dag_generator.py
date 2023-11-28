@@ -3,7 +3,7 @@ from src.dbt.entities.dbt_model import DBTModel
 from src.core.services.utils import load_config, get_config_value, get_default_config_path
 from graph import Graph
 
-# TODO: Needs work, support configs, etc
+# TODO: Needs to be more configurable via config.yaml to accomodate different Airflow implementations
 
 class DAGGenerator:
     def __init__(self, config_path=get_default_config_path()):
@@ -146,15 +146,6 @@ from airflow.utils.task_group import TaskGroup
 from operators.dbt_sla_operator import DbtRunOperator, DbtTestOperator
 # from operators.airbyte_sla_operator import AirbyteSLAOperator
 # from operators.tableau_sla_operator import TableauSLAOperator
-# configs for opsgenie in case of prod failure
-# from plugins.opsgenie.alert import create_opsgenie_alert
-# from plugins.slack.error_notification import error_notification
-
-
-# if os.getenv("ENVIRONMENT") == "prd":
-#     alert_notifier = create_opsgenie_alert
-# else:
-#     alert_notifier = error_notification
     
 PROJECT_DIR = "{dbt_dir}"
 DBT_BIN = "/home/airflow/.local/bin/dbt"
