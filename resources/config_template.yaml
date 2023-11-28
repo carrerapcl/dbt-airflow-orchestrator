@@ -19,4 +19,5 @@ tableau:
   token_name: "your_token_name"
   token_value: "your_token_value"
 
-# TODO: Add custom dag_header_code for src/services/dag_generator.py as future improvement
+dbt:
+  project_dir: "/opt/airflow/dags/artifacts/dbt" # Recommend leaving default value unless a custom Airflow image is used

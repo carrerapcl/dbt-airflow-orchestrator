@@ -12,3 +12,4 @@ graph-theory==2022.4.3
 psycopg2-binary==2.9.6
 apache-airflow==2.6.1
 apache-airflow-providers-airbyte==3.3.0
+git+https://github.com/carrerapcl/airflow-dbt-snowflake.git@main#egg=airflow_dbt_snowflake # PyPi registrations are currently disabled XD
