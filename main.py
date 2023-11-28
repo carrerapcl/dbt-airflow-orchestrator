@@ -62,4 +62,3 @@ if __name__ == "__main__":
             # if it's not an expected error, print the full strack trace
             traceback.print_exc()
             exit(1)
-    # TODO: Same exception handling pattern for orchestration file and dag generator

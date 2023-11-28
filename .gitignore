@@ -4,10 +4,10 @@ __pycache__/
 *$py.class
 *.DS_Store
 
+.env
+
 # orchestrator things
 dbt/generated_dags/*
 *.pickle
-
-.env
-
+**/logs/**
 config.yaml
