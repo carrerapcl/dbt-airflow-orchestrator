@@ -11,3 +11,4 @@ dbt/generated_dags/*
 *.pickle
 **/logs/**
 config.yaml
+local_testing/artifacts/*

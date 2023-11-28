@@ -1,6 +1,6 @@
 ---
 models:
   # Example
-  - name: saltid_accounts
+  - name: dim_customers
     schedule: 0 8 * * *
     sla: 24
