@@ -2,7 +2,7 @@ from airflow.exceptions import AirflowException
 from airflow.models import Variable
 from airflow.utils.context import Context
 from operators.base_sla_operator import SLABaseOperator
-from airflow_dbt.operators.dbt_operator import DbtRunOperator as BaseDbtRunOperator
+from airflow_dbt_snowflake.operators.dbt_operator import DbtRunOperator as BaseDbtRunOperator
 from airflow_dbt.operators.dbt_operator import DbtTestOperator as BaseDbtTestOperator
 
 
@@ -21,7 +21,7 @@ class DbtRunOperator(SLABaseOperator, BaseDbtRunOperator):
         # { "full_refresh": true,"models": ["model_name"]}
         # Then trigger only the models in that dictionary,
         # and with a --full-refresh flag.
-        # If not, just trigger them as usual (full-refresh = False)
+        # If not, just trigger them as usual (full_refresh = False)
         if "models" in context["dag_run"].conf and self.models not in context[
             "dag_run"
         ].conf.get("models", []):
