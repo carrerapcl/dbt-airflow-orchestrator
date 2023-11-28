@@ -25,13 +25,13 @@ def load_config(config_path='config.yaml'):
         with open(config_path, 'r') as file:
             return yaml.safe_load(file)
     except FileNotFoundError:
-        raise ConfigError(f"Configuration file not found: {config_path}")
+        raise ConfigError(f"{bcolors.FAIL}Configuration file not found: {config_path}{bcolors.ENDC}")
     except yaml.YAMLError as exc:
-        raise ConfigError(f"Error parsing YAML configuration: {exc}")
+        raise ConfigError(f"{bcolors.FAIL}Error parsing YAML configuration: {exc}{bcolors.ENDC}")
 
 def get_config_value(config, section, key):
     """Retrieve a value from the configuration and raise an error if not found."""
     try:
         return config[section][key]
     except KeyError:
-        raise ConfigError(f"Missing '{key}' in '{section}' section of the configuration.")
+        raise ConfigError(f"{bcolors.FAIL}Missing '{key}' in '{section}' section of the configuration.{bcolors.ENDC}")

@@ -22,6 +22,7 @@ The project requires the user create a `config.yaml` file at the root, following
 ## Running Locally
 #### Requirements
 `python@3.9`
+`dbt-core >= 1.4`
 
 This assumes you're comfortable with python and are already running a virtualenv for this project.
 
