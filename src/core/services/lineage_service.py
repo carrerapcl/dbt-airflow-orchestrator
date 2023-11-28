@@ -2,12 +2,12 @@ from graph import Graph
 import pickle
 from typing import List
 
-from src.entities.model_config import ModelConfig
-from src.services.dbt_manifest_parser import DBTManifestParser
+from src.core.entities.model_config import ModelConfig
+from src.dbt.services.dbt_manifest_parser import DBTManifestParser
 # from src.services.airbyte_connections_getter import AirbyteConnectionGetter
-from src.services.tableau_data_sources_getter import TableauDataSourcesGetter
-from src.services.dag_generator import DAGGenerator
-from src.services.utils import bcolors
+from src.tableau.services.tableau_data_sources_getter import TableauDataSourcesGetter
+from src.core.services.dag_generator import DAGGenerator
+from src.core.services.utils import bcolors
 
 
 def load_dbt_objects(manifest_path: str):

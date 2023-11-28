@@ -1,7 +1,7 @@
 from requests import Session
-from src.services.utils import load_config, get_config_value, get_default_config_path
-from src.gateways.kafka_connect_cli import KafkaConnectCLI
-from src.entities.kafkaconnect_connector import KafkaConnectConnector
+from src.core.services.utils import load_config, get_config_value, get_default_config_path
+from src.kafkaconnect.gateways.kafka_connect_cli import KafkaConnectCLI
+from src.kafkaconnect.entities.kafkaconnect_connector import KafkaConnectConnector
 
 # TODO: solve for multiple scopes
 class KafkaConnectConnectorsGetter:

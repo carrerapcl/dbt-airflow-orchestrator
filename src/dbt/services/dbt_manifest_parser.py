@@ -1,9 +1,9 @@
 import json
 import yaml
 from typing import Dict
-from src.entities.dbt_model import DBTModel
-from src.entities.dbt_source import DBTSource
-from src.entities.dbt_test import DBTTest
+from src.dbt.entities.dbt_model import DBTModel
+from src.dbt.entities.dbt_source import DBTSource
+from src.dbt.entities.dbt_test import DBTTest
 
 # to map generic FileNotFound to a specific error
 class ManifestNotFoundError(FileNotFoundError):

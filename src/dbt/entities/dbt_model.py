@@ -1,4 +1,4 @@
-from src.entities.dbt_test import DBTTest
+from src.dbt.entities.dbt_test import DBTTest
 
 
 class DBTModel:

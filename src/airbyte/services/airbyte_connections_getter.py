@@ -1,8 +1,8 @@
-from src.services.utils import load_config, get_config_value, get_default_config_path
+from src.core.services.utils import load_config, get_config_value, get_default_config_path
 from requests.auth import HTTPBasicAuth
 from requests import Session
-from src.gateways.airbyte_cli import AirbyteCLI
-from src.entities.airbyte_connection import AirbyteConnection
+from src.airbyte.gateways.airbyte_cli import AirbyteCLI
+from src.airbyte.entities.airbyte_connection import AirbyteConnection
 
 class AirbyteConnectionGetter:
     def __init__(self, config_path=get_default_config_path()):

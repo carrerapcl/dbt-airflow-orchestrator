@@ -1,6 +1,6 @@
-from src.entities.airbyte_connection import AirbyteConnection
-from src.entities.dbt_model import DBTModel
-from src.services.utils import load_config, get_config_value, get_default_config_path
+from src.airbyte.entities.airbyte_connection import AirbyteConnection
+from src.dbt.entities.dbt_model import DBTModel
+from src.core.services.utils import load_config, get_config_value, get_default_config_path
 from graph import Graph
 
 # TODO: Needs work, support configs, etc

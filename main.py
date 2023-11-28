@@ -2,10 +2,10 @@ import argparse
 import traceback
 import os
 
-from src.services.orchestration_config_parser import OrchestrationConfigParser
-from src.services.lineage_service import full_lineage, use_cached_lineage
-from src.services.dbt_manifest_parser import ManifestNotFoundError
-from src.services.utils import bcolors
+from src.core.services.orchestration_config_parser import OrchestrationConfigParser
+from src.core.services.lineage_service import full_lineage, use_cached_lineage
+from src.dbt.services.dbt_manifest_parser import ManifestNotFoundError
+from src.core.services.utils import bcolors
 
 
 if __name__ == "__main__":

@@ -22,10 +22,10 @@ The core of the projct is `services/lineage_service.py`. Along with the classes 
 
 The project requires the user to create a `config.yaml` file at the root, following the example provided in `resources/config_template.yaml`, and add the appropiate credentials.
 
-## Running Locally
+## Creating DAGs
 #### Requirements
-`python@3.9`
-`dbt-core >= 1.6`
+- `python@3.9`
+- `dbt-core >= 1.6`
 
 This assumes you're comfortable with python and are already running a virtualenv for this project.
 
@@ -33,11 +33,10 @@ This assumes you're comfortable with python and are already running a virtualenv
 2. Generate the DAGs with `$ python main.py -m <PATH_TO_DBT_MANIFEST_JSON> `
 
 #### Command line options
-`-c` Use cache - this is a faster way to run the project, instead of generated the lineage it will use a previously generated lineage and graph (stored in the lineage and graph .pickles) - this also does not require a manifest file.
-`-m` Path to dbt `manifest.json`, this is required if running without the cache option enabled but can be excluded otherwise.
-`-f` Path to orchestration file, the list of tables you'd like to orchestrate. If not specified, it defaults to `./resources/orchestration.yaml`.
-`-d` Path to a directory to output the generated DAGs to. If not specified, defaults to `./generated_dags/`, creating the directory if it doesn't exist.
+- `-c` Use cache - this is a faster way to run the project, instead of generated the lineage it will use a previously generated lineage and graph (stored in the lineage and graph .pickles) - this also does not require a manifest file.
+- `-m` Path to dbt `manifest.json`, this is required if running without the cache option enabled but can be excluded otherwise.
+- `-f` Path to orchestration file, the list of tables you'd like to orchestrate. If not specified, it defaults to `./resources/orchestration.yaml`.
+- `-d` Path to a directory to output the generated DAGs to. If not specified, defaults to `./generated_dags/`, creating the directory if it doesn't exist.
 
-
-### Testing end to end locally
+## Testing end to end locally
 Please refer to the README in the `local_testing` directory for instructions on how to run or test this project locally.

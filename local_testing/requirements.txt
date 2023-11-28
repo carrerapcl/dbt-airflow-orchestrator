@@ -1,6 +1,6 @@
 apache-airflow-providers-airbyte==3.3.0
 apache-airflow-providers-tableau==4.2.0
-apache-airflow-providers-opsgenie==4.0.0
+# apache-airflow-providers-opsgenie==4.0.0
 apache-airflow-providers-snowflake==5.1.1 # Required by custom operator airflow-dbt-snowflake -> Local testing works (fully) for Snowflake warehouses only for now
 # airflow-dbt==0.4.0
 git+https://github.com/carrerapcl/airflow-dbt-snowflake.git@main#egg=airflow_dbt_snowflake # PyPi registrations are currently disabled XD
