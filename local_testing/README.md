@@ -13,4 +13,18 @@ You can get the local environment up and running using the Makefile by running t
 
 You need to install and activate Docker first.
 
+There are only 2 things needed to do before `make setup`:
+1.	Generate some DAGs with the main script (check the README for information on how to do this)
+
+2.	Copy the files from your own dbt setup into `local_testing/artifacts/dags`:
+    
+    a.	Copy your `manifest.json` file into `local_testing/artifacts/dags/dbt/target`.
+
+    b.	Copy your `dbt_project.yml` file into `local_testing/artifacts/dags/dbt`.
+
+    c.	Copy your `profiles.yml` file into `local_testing/artifacts/dags/dbt/profiles`. This is not necessary if you don’t want the DAGs to actually run the models in your target database.
+
+
+Dummy versions for all these files are provided by default, so you could actually test the local build first with the files provided.
+
 All DAGs in the `local_testing/dags` directory are loaded into Airflow. You can generate DAGs using the sample manifest file provided in the `resources` directory (follow the README instructions at the root of this repo).
